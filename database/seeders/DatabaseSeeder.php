@@ -21,7 +21,43 @@ class DatabaseSeeder extends Seeder
             'email' => 'hazem@unipiles.com',
             'password' => bcrypt('password'),
         ]);
-        User::factory(5)->create();
+
+        User::create([
+            'name' => 'Bahy',
+            'email' => 'bahy@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+        User::create([
+            'name' => 'Abanoub',
+            'email' => 'abanoub@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+        User::create([
+            'name' => 'Amir',
+            'email' => 'amir@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+        User::create([
+            'name' => 'San',
+            'email' => 'san@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+        User::create([
+            'name' => 'Sabry',
+            'email' => 'sabry@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+
+        User::create([
+            'name' => 'Gamil',
+            'email' => 'gamil@unipiles.com',
+            'password' => bcrypt('123456'),
+        ]);
+
+
+
+
+        // User::factory(5)->create();
 
         // User::factory()->create([
         //     'name' => 'Test User',
