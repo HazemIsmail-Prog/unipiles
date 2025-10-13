@@ -53,7 +53,7 @@ class DocumentController extends Controller
         $validated = $request->validate([
             'project_id' => 'required|exists:projects,id',
             'date' => 'nullable|date',
-            'type' => 'required|string|max:255',
+            'type' => 'nullable|string|max:255',
             'ref' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
@@ -70,7 +70,7 @@ class DocumentController extends Controller
         $validated = $request->validate([
             'project_id' => 'required|exists:projects,id',
             'date' => 'nullable|date',
-            'type' => 'required|string|max:255',
+            'type' => 'nullable|string|max:255',
             'ref' => 'nullable|string|max:255',
             'subject' => 'required|string|max:255',
             'description' => 'nullable|string|max:255',
