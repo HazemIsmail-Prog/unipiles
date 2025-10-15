@@ -7,45 +7,45 @@
         <flux:sidebar sticky stashable class="border-e border-zinc-200 bg-zinc-50 dark:border-zinc-700 dark:bg-zinc-900">
             <flux:sidebar.toggle class="lg:hidden" icon="x-mark" />
 
-            <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" >
+            <a href="{{ route('dashboard') }}" class="me-5 flex items-center space-x-2 rtl:space-x-reverse" wire:navigate>
                 <x-app-logo />
             </a>
 
             <flux:navlist variant="outline">
                 <flux:navlist.group :heading="__('')" class="grid">
-                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" >{{ __('Dashboard') }}</flux:navlist.item>
+                    <flux:navlist.item icon="home" :href="route('dashboard')" :current="request()->routeIs('dashboard')" wire:navigate>{{ __('Dashboard') }}</flux:navlist.item>
                     @if(auth()->user()->hasPermissionTo('view_all_user'))
-                        <flux:navlist.item icon="users" :href="route('users.index')" :current="request()->routeIs('users.index')" >{{ __('Users') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('users.index')" :current="request()->routeIs('users.index')" wire:navigate>{{ __('Users') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_role'))
-                    <flux:navlist.item icon="users" :href="route('roles.index')" :current="request()->routeIs('roles.index')" >{{ __('Roles') }}</flux:navlist.item>
+                    <flux:navlist.item icon="users" :href="route('roles.index')" :current="request()->routeIs('roles.index')" wire:navigate>{{ __('Roles') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_permission'))
-                        <flux:navlist.item icon="users" :href="route('permissions.index')" :current="request()->routeIs('permissions.index')" >{{ __('Permissions') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('permissions.index')" :current="request()->routeIs('permissions.index')" wire:navigate>{{ __('Permissions') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_title'))
-                    <flux:navlist.item icon="users" :href="route('titles.index')" :current="request()->routeIs('titles.index')" >{{ __('Titles') }}</flux:navlist.item>
+                    <flux:navlist.item icon="users" :href="route('titles.index')" :current="request()->routeIs('titles.index')" wire:navigate>{{ __('Titles') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_company'))
-                        <flux:navlist.item icon="users" :href="route('companies.index')" :current="request()->routeIs('companies.index')" >{{ __('Companies') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('companies.index')" :current="request()->routeIs('companies.index')" wire:navigate>{{ __('Companies') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_project'))
-                    <flux:navlist.item icon="users" :href="route('projects.index')" :current="request()->routeIs('projects.index')" >{{ __('Projects') }}</flux:navlist.item>
+                    <flux:navlist.item icon="users" :href="route('projects.index')" :current="request()->routeIs('projects.index')" wire:navigate>{{ __('Projects') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_document'))
-                        <flux:navlist.item icon="users" :href="route('documents.index')" :current="request()->routeIs('documents.index')" >{{ __('Documents') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('documents.index')" :current="request()->routeIs('documents.index')" wire:navigate>{{ __('Documents') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_quotation'))
-                        <flux:navlist.item icon="users" :href="route('quotations.index')" :current="request()->routeIs('quotations.index')" >{{ __('Quotations') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('quotations.index')" :current="request()->routeIs('quotations.index')" wire:navigate>{{ __('Quotations') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_employee'))
-                        <flux:navlist.item icon="users" :href="route('employees.index')" :current="request()->routeIs('employees.index')" >{{ __('Employees') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('employees.index')" :current="request()->routeIs('employees.index')" wire:navigate>{{ __('Employees') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_assettype'))
-                        <flux:navlist.item icon="users" :href="route('asset-types.index')" :current="request()->routeIs('asset-types.index')" >{{ __('Asset Types') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('asset-types.index')" :current="request()->routeIs('asset-types.index')" wire:navigate>{{ __('Asset Types') }}</flux:navlist.item>
                     @endif
                     @if(auth()->user()->hasPermissionTo('view_all_asset'))
-                        <flux:navlist.item icon="users" :href="route('assets.index')" :current="request()->routeIs('assets.index')" >{{ __('Assets') }}</flux:navlist.item>
+                        <flux:navlist.item icon="users" :href="route('assets.index')" :current="request()->routeIs('assets.index')" wire:navigate>{{ __('Assets') }}</flux:navlist.item>
                     @endif
                 </flux:navlist.group>
             </flux:navlist>
@@ -53,8 +53,8 @@
             <flux:spacer />
 
             <flux:radio.group x-data variant="segmented">
-                <flux:radio :checked="auth()->user()->locale === 'en'" href="{{ route('users.updateLocale', ['locale' => 'en']) }}" >English</flux:radio>
-                <flux:radio :checked="auth()->user()->locale === 'ar'" href="{{ route('users.updateLocale', ['locale' => 'ar']) }}" >عربي</flux:radio>
+                <flux:radio :checked="auth()->user()->locale === 'en'" href="{{ route('users.updateLocale', ['locale' => 'en']) }}" wire:navigate>English</flux:radio>
+                <flux:radio :checked="auth()->user()->locale === 'ar'" href="{{ route('users.updateLocale', ['locale' => 'ar']) }}" wire:navigate>عربي</flux:radio>
             </flux:radio.group>
 
 
@@ -90,7 +90,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" >{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
@@ -140,7 +140,7 @@
                     <flux:menu.separator />
 
                     <flux:menu.radio.group>
-                        <flux:menu.item :href="route('settings.profile')" icon="cog" >{{ __('Settings') }}</flux:menu.item>
+                        <flux:menu.item :href="route('settings.profile')" icon="cog" wire:navigate>{{ __('Settings') }}</flux:menu.item>
                     </flux:menu.radio.group>
 
                     <flux:menu.separator />
