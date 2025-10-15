@@ -1,5 +1,5 @@
 document.addEventListener('alpine:init', () => {
-    Alpine.data('documentsComponent', ( projects = [] ) => ({
+    Alpine.data('documentsComponent', ( projects = [] , project_id = null ) => ({
         projects: projects,
         documents: [],
         current_page:1,
@@ -17,6 +17,9 @@ document.addEventListener('alpine:init', () => {
                 this.fetchDocuments();
             });
             this.filters = this.getEmptyFilters();
+            if (project_id) {
+                this.filters.project_id = project_id;
+            }
         },
 
         setSorting($column){

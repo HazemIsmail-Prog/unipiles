@@ -42,7 +42,9 @@
                                         <ul class="list-disc">
                                             <template x-for="project in company.projects" :key="project.id">
                                                 <li>
-                                                    <flux:text x-text="project.name"></flux:text>
+                                                    <a :href="`/documents?project_id=${project.id}`" class="hover:underline">
+                                                        <flux:text x-text="project.name"></flux:text>
+                                                    </a>
                                                 </li>
                                             </template>
                                         </ul>

@@ -1,7 +1,7 @@
 <x-layouts.app :title="__('Documents')">
 
     <div 
-        x-data="documentsComponent({{ $projects }})"
+        x-data="documentsComponent({{ $projects }}, {{ $project_id }})"
         x-on:attachment-updated.window="handleAttachmentUpdatedEvent"
         x-on:attachment-added.window="handleAttachmentAddedEvent"
         x-on:attachment-deleted.window="handleAttachmentDeletedEvent"
@@ -114,7 +114,7 @@
                                 <flux:select x-model="filters.project_id" >
                                     <option value="" selected>{{ __('All') }}</option>
                                     <template x-for="project in projects" :key="project.id">
-                                        <option x-bind:value="project.id" x-text="project.name"></option>
+                                        <option x-bind:selected="filters.project_id === project.id" x-bind:value="project.id" x-text="project.name"></option>
                                     </template>
                                 </flux:select>
                             </th>

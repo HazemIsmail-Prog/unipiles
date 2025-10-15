@@ -43,8 +43,9 @@ class DocumentController extends Controller
                 ->orderBy($filters['sort'] ?? 'id', $filters['sort_direction'] ?? 'desc')
                 ->paginate(request()->per_page ?? 10);
         }
+        $project_id = request()->project_id ?? null;
         $projects = Project::all();
-        return view('pages.documents', compact('projects'));
+        return view('pages.documents', compact('projects', 'project_id'));
     }
 
     public function store(Request $request)
