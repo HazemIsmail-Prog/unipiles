@@ -23,6 +23,7 @@
                     <thead>
                         <tr>
                             <th>{{ __('Name') }}</th>
+                            <th>{{ __('Projects') }}</th>
                             <th></th>
                         </tr>
                     </thead>
@@ -37,6 +38,15 @@
                         <template x-for="company in companies" :key="company.id">
                             <tr>
                                 <td x-text="company.name"></td>
+                                <td>
+                                        <ul class="list-disc">
+                                            <template x-for="project in company.projects" :key="project.id">
+                                                <li>
+                                                    <flux:text x-text="project.name"></flux:text>
+                                                </li>
+                                            </template>
+                                        </ul>
+                                </td>
                                 <td>
                                     <div class="flex gap-2 justify-end items-center">
                                         <template x-if="company.can_update">

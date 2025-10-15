@@ -12,7 +12,9 @@ class CompanyController extends Controller
     {
         abort_if(!auth()->user()->hasPermissionTo('view_all_company'), 403);
         if (request()->wantsJson()) {
-            return Company::paginate(request()->per_page ?? 10);
+            return Company::query()
+                ->with('projects')
+                ->paginate(request()->per_page ?? 10);
         }
         return view('pages.companies');
     }
