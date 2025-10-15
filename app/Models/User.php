@@ -99,7 +99,8 @@ class User extends Authenticatable
     // haspermission
     public function hasPermissionTo($permission)
     {
-        return $this->all_permissions->contains($permission);
+        // return true;
+        return $this->getAllPermissionsAttribute()->contains($permission);
     }
 
 
