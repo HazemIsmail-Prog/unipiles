@@ -23,7 +23,7 @@ Route::get('/', function () {
 })->name('home');
 
 
-Route::middleware(['auth'])->group(function () {
+Route::middleware(['auth', 'language'])->group(function () {
     
 
     Route::view('dashboard', 'dashboard')->name('dashboard');
