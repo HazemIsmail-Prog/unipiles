@@ -74,7 +74,7 @@ class User extends Authenticatable
     public function getAllPermissionsAttribute()
     {
         // get unique permission names from permissions and roles and cache the result
-        return cache()->remember("user_permissions_{$this->id}", 60, function () {
+        return cache()->rememberForever("user_permissions_{$this->id}", function () {
             return $this
                 ->permissions()
                 ->pluck('name')
