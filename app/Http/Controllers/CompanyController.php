@@ -14,6 +14,7 @@ class CompanyController extends Controller
         if (request()->wantsJson()) {
             return Company::query()
                 ->with('projects')
+                ->orderBy(app()->getLocale() === 'ar' ? 'name_ar' : 'name_en', 'asc')
                 ->paginate(request()->per_page ?? 10);
         }
         return view('pages.companies');
